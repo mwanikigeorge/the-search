@@ -1,0 +1,410 @@
+// Note: we use Autoprefixer to add vendor prefixes to our CSS -> https://github.com/postcss/autoprefixer
+
+// core bootstrap files
+$enable-flex:               true;
+$enable-grid-classes:       true;
+
+@import '../node_modules/bootstrap/scss/_variables.scss';
+@import '../node_modules/bootstrap/scss/_mixins.scss';
+@import '../node_modules/bootstrap/scss/_normalize.scss';
+@import '../node_modules/bootstrap/scss/_nav.scss';
+@import '../node_modules/bootstrap/scss/_card.scss';
+@import '../node_modules/bootstrap/scss/_reboot.scss';
+@import '../node_modules/bootstrap/scss/_grid.scss';
+@import '../node_modules/bootstrap/scss/_media.scss';
+@import '../node_modules/bootstrap/scss/_type.scss';
+@import '../node_modules/bootstrap/scss/_images.scss';
+@import '../node_modules/bootstrap/scss/_utilities.scss';
+
+// media queries available as sass mixins
+// @include media-breakpoint-only(xs) { ... }
+// @include media-breakpoint-only(sm) { ... }
+// @include media-breakpoint-only(md) { ... }
+// @include media-breakpoint-only(lg) { ... }
+// @include media-breakpoint-only(xl) { ... }
+
+//override bootstap variable
+
+@import 'partials/variables'; // colors, fonts etc...
+
+@import 'partials/mixin'; // custom mixins
+
+@import 'partials/layout'; // responsive grid and media queries
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font: {
+		size: 1.6rem;
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: $dark-gray;
+	background-color: $primary;
+	@include font-smoothing;
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
+
+.header{
+	>.row{
+		height: 110px;
+	}
+}
+
+	.social{
+		// width: 30px;
+		// height: 30px;
+
+		a{
+			background-image: url("../imgs/social.png");
+			background-repeat: no-repeat;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+
+			&.fb{
+
+			}
+			&.in{
+				background-position: -34px 0;
+			}
+			&.tw{
+				background-position: -69px 0;
+			}
+			&.gp{
+				background-position: -104px 0;
+			}
+			&.inst{
+				background-position: -138px 0;
+			}
+			&.vote{
+				background-image: none;
+				background-color: $dark-gray;
+				width: 100px;
+				text-align: center;
+				border-radius: 15px;
+				height: 30px;
+				line-height: 30px;
+				// padding: 5px 20px;
+				font-size: .8em;
+			}
+		}
+
+		&.card-social{
+			position: relative;
+			display: flex;
+			height: 40px;
+
+			a{
+			background-image: url("../imgs/socialmute.png");
+			width: 24px;
+			height: 20px;
+
+			&.in{
+				background-position: -26px 0;
+			}
+			&.tw{
+				background-position: -51px 0;
+			}
+			&.gp{
+				background-position: -78px 0;
+			}
+			&.inst{
+				background-position: -104px 0;
+			}
+		}
+		}
+	}
+
+.main-nav{
+	background-color: $accent;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+
+	@include MQ(M){
+		width: 90%;
+	}
+
+	a{
+		padding-right: 2em;
+		transition: all .3s;
+
+
+	}
+
+	.search-icon{
+
+	}
+}
+
+.main-content{
+	background-color: $white;
+	width: 100%;
+
+	@include MQ(M){
+		width: 90%;
+	}
+}
+
+.nav a:hover, .nav a:active, .nav a.active {
+	color: $primary;
+}
+
+
+.compe-cards{
+	overflow: hidden;
+
+	.card{
+		border: none;
+		position: relative;
+		overflow: hidden;
+
+		.card-img{
+			width: 100%;
+		}
+
+		.card-img-overlay{
+			z-index: 1;
+
+		.card-content{
+			position: absolute;
+			bottom: 30px;
+		}
+		.card-title{
+			background-color: $accent;
+			padding: 8px 20px 7px;
+			display: inline-block;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+
+		.card-text{
+			color: #fff;
+			font-size: 1.2em;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
+		}
+
+		&::after{
+			content: " ";
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+		}
+
+
+		&.feature-card::after {
+			background: rgba(164,99,255,0);
+			background: -moz-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(157,100,184,0.91) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(164,99,255,0)), color-stop(100%, rgba(157,100,184,0.91)));
+			background: -webkit-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(157,100,184,0.91) 100%);
+			background: -o-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(157,100,184,0.91) 100%);
+			background: -ms-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(157,100,184,0.91) 100%);
+			background: linear-gradient(to bottom, rgba(164,99,255,0) 0%, rgba(157,100,184,0.91) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a463ff', endColorstr='#9d64b8', GradientType=0 );
+		}
+
+		&.second-card::after{
+			background: rgba(164,99,255,0);
+			background: -moz-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(168,207,255,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(164,99,255,0)), color-stop(100%, rgba(168,207,255,1)));
+			background: -webkit-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(168,207,255,1) 100%);
+			background: -o-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(168,207,255,1) 100%);
+			background: -ms-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(168,207,255,1) 100%);
+			background: linear-gradient(to bottom, rgba(164,99,255,0) 0%, rgba(168,207,255,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a463ff', endColorstr='#a8cfff', GradientType=0 );
+					}
+
+			&.third-card::after{
+			background: rgba(164,99,255,0);
+			background: -moz-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(214,150,101,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(164,99,255,0)), color-stop(100%, rgba(214,150,101,1)));
+			background: -webkit-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(214,150,101,1) 100%);
+			background: -o-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(214,150,101,1) 100%);
+			background: -ms-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(214,150,101,1) 100%);
+			background: linear-gradient(to bottom, rgba(164,99,255,0) 0%, rgba(214,150,101,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a463ff', endColorstr='#d69665', GradientType=0 );
+			}
+
+			&.fourth-card::after{
+				background: rgba(164,99,255,0);
+				background: -moz-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(212,101,124,1) 100%);
+				background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(164,99,255,0)), color-stop(100%, rgba(212,101,124,1)));
+				background: -webkit-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(212,101,124,1) 100%);
+				background: -o-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(212,101,124,1) 100%);
+				background: -ms-linear-gradient(top, rgba(164,99,255,0) 0%, rgba(212,101,124,1) 100%);
+				background: linear-gradient(to bottom, rgba(164,99,255,0) 0%, rgba(212,101,124,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a463ff', endColorstr='#d4657c', GradientType=0 );
+			}
+	}
+
+	.feature-card .card-img-overlay{
+		.card-text{
+			font-size: 1em;
+
+			@include MQ(M){
+				font-size: 2em;
+			}
+		}
+
+	}
+
+}
+
+// BUTTONS 
+.btn{
+	border: none;
+	padding: 7px 30px 5px;
+	color: $accent;
+	font-weight: bold;
+	text-transform: capitalize;
+	transition: all .3s;
+
+	&.btn-primary{
+		background-color: $primary;
+
+		&:hover{
+			background-color: darken($primary, 15%);
+		}
+	}
+
+	&.subscribe{
+		text-transform: uppercase;
+	}
+}
+
+.section-heading, .media-heading{
+	color: $accent;
+	font-weight: bold;
+	text-transform: capitalize;
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+.media{
+	flex-wrap: wrap;
+
+	.media-left{
+		margin: 0 auto 2em;
+
+		@include MQ(M){
+			margin: none;
+		}
+	}
+}
+
+
+.media-heading{
+	margin-bottom: 1em;
+	color: $dark-gray;
+}
+
+.missed, .advert{
+	h2{
+		font-weight: bold;
+		font-size: 1.5em;
+		text-transform: uppercase;
+		color: $dark-gray;
+	}
+}
+
+.newsletter{
+	background-image: url("../imgs/subscribebg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+h3{
+	color: #fff;
+	margin-bottom: 1em;
+}
+}
+
+.updates{
+	background-image: url("../imgs/episodebg.png");
+	padding: 2em 0;
+}
+
+.episodes{
+  .media{
+  	margin-bottom: 2em;
+  }
+}
+
+.footer{
+	background-color: $dark-gray;
+	height: 280px;
+	border-bottom: 8px solid $primary;
+
+	.social-group{
+		border-bottom: 1px solid #bbb;
+		min-height: 100px;
+
+		h2{
+			width: 100%;
+			text-align: center;
+			color: $white;
+		}
+	}
+}
+
+// Judges and contestants page
+
+.judges, .contestants{
+	margin-bottom: 3em;
+	.card{
+		border: none;
+		box-shadow: 0 0 15px #ccc;
+	}
+}
+
+.load-more{
+	margin-left: auto;
+	margin-right: auto;
+}
+.contestants{
+
+	.card{
+		margin-bottom: 2em;
+		margin-left: 1em;
+
+		img{
+			width: 100%;
+		}
+	}
+}
+
+
+.footer-nav{
+	position: relative;
+
+	.nav > a{
+		padding: 0 10px 0 0px;
+		border-right: 1px solid #bbb;
+		transition: all .3s;
+	}
+
+	.foot-logo{
+		position: absolute;
+		top: 40%;
+	}
+	.copyright{
+		text-align: right;
+		color: #bbb;
+	}
+}
