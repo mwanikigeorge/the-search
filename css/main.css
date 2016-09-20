@@ -3407,6 +3407,39 @@ a {
   transition: all .3s;
 }
 
+.main-nav .navbar {
+  position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.main-nav .search-form input[type="text"] {
+  position: absolute;
+  width: 100%;
+  outline: none;
+  opacity: 0;
+  z-index: 5;
+  padding-left: 10px;
+  border: 10px solid #000000;
+  top: 100%;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+  -webkit-transform-origin: top;
+      -ms-transform-origin: top;
+          transform-origin: top;
+  left: 0;
+}
+
+.main-nav .search-form input[type="text"].isVisible {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+}
+
 .main-content {
   background-color: #ffffff;
   width: 100%;

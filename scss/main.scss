@@ -144,8 +144,36 @@ a {
 
 	}
 
-	.search-icon{
+	.navbar{
+		position: relative;
+		perspective: 1000px;
+		transform-style: preserve-3d;
+	}
 
+	.search-form{
+		
+		input[type="text"]{
+			position: absolute;
+			width: 100%;
+			outline: none;
+			opacity: 0;
+			z-index: 5;
+			padding-left: 10px;
+			border: 10px solid $accent;
+			top: 100%;
+			transition-property: all; 
+			transition-duration: 1s;
+			transform: rotateX(-90deg);
+			transform-origin: top; 
+			left: 0;
+
+			&.isVisible{
+				opacity: 1;
+				transform: rotateX(0deg); 
+
+			}
+		}
+		
 	}
 }
 
